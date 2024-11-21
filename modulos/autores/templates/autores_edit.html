@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="message">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="/autores/edit-save" method="post">
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome">
+        </div>
+        <div>
+            <label for="instituicao">Instituição: </label>
+            <input type="text" name="instituicao" id="instituicao">
+        </div>
+        <input type="hidden" name="id_autor" id="id_autor" value="{{dados.id_autor}}">
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}

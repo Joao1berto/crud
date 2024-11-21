@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="message">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="adicionar">
+        <a href="/capitulos/add">Adicionar</a>
+    </div>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Página</th>
+            <th>Autor</th>
+            <th>Editar</th>
+            <th>Remover</th>
+        </tr>
+        {% for c in capitulo %}
+        <tr>
+            <td>{{c.titulo}}</td>
+            <td>{{c.pagina_inicial}}</td>
+            <td>{{c.autor.nome}}</td>
+            <td><a href="/capitulos/edit/{{c.id}}">[E]</a></td>
+            <td><a href="/capitulos/remove/{{c.id}}">[X]</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

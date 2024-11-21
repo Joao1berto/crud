@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Print G1</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/estilo.css')}}">
+</head>
+<body>
+    <header>
+        <nav>
+            <li>
+                <a href="/autores">Autores</a>
+            </li>
+            <li>
+                <a href="/capitulos">Capítulos</a>
+            </li>
+        </nav>
+    </header>
+    <main>
+        {% block conteudo %}
+        {% endblock %}
+    </main>
+</body>
+</html>
